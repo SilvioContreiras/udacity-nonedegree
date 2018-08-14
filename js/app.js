@@ -1,4 +1,6 @@
-let myCards =  document.querySelectorAll('.my-card');
+const myCards =  document.querySelectorAll('.my-card');
+let myScore =  document.getElementById('score').textContent = 0;
+
 
 let changeCard = false;
 let cardOne, cardTwo;
@@ -24,8 +26,16 @@ function showCard() {
 		cardOne.removeEventListener('click', showCard);
 		cardTwo.removeEventListener('click', showCard);
 
+			
+
+
 	} else {
+
+		let countPlay = myScore + 1; 
+		myScore = document.getElementById('score').innerHTML = countPlay;
+
 		close = true;
+
 		setTimeout(function(){
 			cardOne.classList.remove('show');
 			cardTwo.classList.remove('show');
