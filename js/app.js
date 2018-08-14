@@ -5,9 +5,7 @@ let cardOne, cardTwo;
 let close = false;
 
 function showCard() {
-	if (close) {
-		return;
-	}
+	if (close) return;
 
 	if(this === cardOne) return;
 	this.classList.add('show');
@@ -17,26 +15,23 @@ function showCard() {
 		cardOne = this;
 
 		return;
-	} else {
+
+	} 
 		changeCard = false;
 		cardTwo = this;
-	}
 
 	if (cardOne.dataset.name === cardTwo.dataset.name) {
 		cardOne.removeEventListener('click', showCard);
 		cardTwo.removeEventListener('click', showCard);
 
-		changeCard = false;
-		close = false;
-		cardOne = null;
-		cardTwo = null;
 	} else {
+		close = true;
 		setTimeout(function(){
-			close = true;
 			cardOne.classList.remove('show');
 			cardTwo.classList.remove('show');
+
 			close =  false;
-		}, 1200)
+		}, 1500);
 	} 
 }
 
@@ -47,6 +42,13 @@ function showCard() {
 	});
 })();
 
+
+function resetGame() {
+	changeCard = false;
+	close = false;
+	cardOne = null;
+	cardTwo = null;
+}
 
 
 myCards.forEach(function(card){

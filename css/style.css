@@ -1,22 +1,35 @@
  
 *{
 	padding: 0;
-	margin: 10px auto;
+	margin: 2px auto;
 	box-sizing: border-box;
+	font-style: 'Roboto', Arial;
 }
 
 
 body {
 	height: 100%;
-	display: flex;
+	/*display: flex;*/
 	background: #80278f00;
+}
+
+
+
+.info {
+	font-size: 14px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.info  p {
+	font-weight: 600;
 }
 
 .jogo-memory {
 	display: flex;
 	flex-wrap: wrap;
-	width: 660px;
-	height: 660px;
+	width: 560px;
+	height: 460px;
 	margin: auto;
 	perspective: 1000px;
 }
