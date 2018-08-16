@@ -39,7 +39,7 @@ function showCard() {
 			for (let i = 0; i < card.length; i++) {
 				card[i].classList.add('match');
 
-				console.log('Awesome');
+				console.log('Awesome!!');
 			}
 
 		}, 200);
