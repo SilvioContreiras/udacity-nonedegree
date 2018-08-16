@@ -1,4 +1,4 @@
- 
+
 *{
 	padding: 0;
 	margin: 2px auto;
@@ -27,21 +27,25 @@ body {
 
 .jogo-memory {
 	display: flex;
-	flex-wrap: wrap;
-	width: 560px;
-	height: 460px;
-	margin: auto;
-	perspective: 1000px;
+    flex-wrap: wrap;
+    width: 850px;
+    height: 600px;
+    perspective: 1000px;
+    background: linear-gradient(300deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius: 0.5em;
+    padding: 40px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .my-card {
 	width: calc(25% - 20px);
-	height: calc(33.333% - 20px);
+	/*height: calc(33.333% - 20px);*/
 	margin: 10px;
 	transform-style: preserve-3d;
 	transform: scale(1);
 	position: relative;
-	transition: transform .4s;
+	transition: transform .2s;
+	cursor: pointer;
 }
 
 .my-card.show {
@@ -49,12 +53,21 @@ body {
 }
 
 .my-card:active {
-	transform: scale(.95);
-	transition: transform 0.2s;
+	transform: scale(.97);
+	transition: transform .2s;
 }
 
 .front {
 	transform: rotateY(180deg);
+	background-color: #fff;
+}
+
+.front.match {
+	background-color: #8afa09;
+}
+
+.back {
+	background-color: #0d0c0c;
 }
 
 
@@ -64,10 +77,9 @@ body {
 	border-radius: 0.5em;
 	padding: 20px;
 	position: absolute;
-	background-color: #b3cde3;
-	box-shadow: -6px -5px 4px 0px rgb(139, 127, 127);
-    -webkit-box-shadow: -6px -5px 4px 0px rgb(139, 127, 127);
-    -moz-box-shadow: -6px -5px 4px 0px rgb(139, 127, 127);
+	box-shadow: 4px -4px 34px 3px #607D8B;
+    -webkit-box-shadow: 4px -4px 34px 3px #607D8B;
+    -moz-box-shadow: 4px -4px 34px 3px #607D8B;
 	backface-visibility: hidden;
 }
 
@@ -97,26 +109,3 @@ body {
 			transform: translateY(-20%);
 	padding: 40px 20px; 
 }
-
-.modal .restart {
-	padding:  20px 30px;
-	display: block;
-	font-size: 18px;
-	border: none;
-	background: #4d4d4d;
-	background: linear-gradient(#4d4d4d, #222);
-	border: 1px solid #222;
-	border-radius: .5em;
-	color: #fff;
-	text-shadow: 0 1px 0 #000;
-	cursor: pointer;
-}
-
-.modal .restart:hover {
-  background: linear-gradient(#222, black);
-}
-
-
-
-
-/*Ler Livro de Antony Flew - Deus Existe*/
