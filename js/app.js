@@ -1,7 +1,7 @@
 const myCards =  document.querySelectorAll('.my-card');
 let myScore =  document.getElementById('score').textContent = 0;
 
-let card =  document.querySelectorAll('.front');
+let card =  document.querySelector('.front');
 
 
 let changeCard = false;
@@ -29,35 +29,20 @@ function showCard() {
 
 		//  Check if the cards matches or not
 	if (cardOne.dataset.name === cardTwo.dataset.name) {
+		checarMatch();
+	}
 
-		//  remove the function that make the card to flip
-		cardOne.removeEventListener('click', showCard);
-		cardTwo.removeEventListener('click', showCard);
-
-		setTimeout(function(){
-
-			for (let i = 0; i < card.length; i++) {
-				card[i].classList.add('match');
-
-				console.log('Awesome!!');
-			}
-
-		}, 200);
-
-		resetGame();
-
-	} else {
+	else {
 
 		let countPlay = myScore + 1; 
 		myScore = document.getElementById('score').innerHTML = countPlay;
 
 		block = true;
 		setTimeout(function(){
-			cardOne.classList.remove('show');
-			cardTwo.classList.remove('show');
+			noMatch()
 
 			block =  false;
-		}, 600);		
+		}, 700);		
 	} 
 }
 
@@ -66,6 +51,30 @@ function resetGame() {
 	block = false;
 	cardOne = null;
 	cardTwo = null;
+}
+
+
+function checarMatch() {
+		//  remove the function that make the card to flip
+		flipCards();
+		resetGame();
+
+}
+
+function noMatch() {
+	cardOne.classList.remove('shake');
+	cardTwo.classList.remove('shake');
+
+	cardOne.classList.remove('show');
+	cardTwo.classList.remove('show');
+}
+
+function flipCards() {
+	cardOne.removeEventListener('click', showCard);
+	cardTwo.removeEventListener('click', showCard);
+
+	cardOne.classList.add('shake');
+	cardTwo.classList.add('shake');
 }
 
 (function shuffle() {

@@ -51,6 +51,12 @@ body {
 	transform: rotateY(180deg);
 }
 
+
+.my-card.shake {
+  animation-duration: 0.8s;
+  animation-name: shake;
+}
+
 .my-card:active {
 	transform: scale(.97);
 	transition: transform .2s;
@@ -58,15 +64,34 @@ body {
 
 .front {
 	transform: rotateY(180deg);
-	background-color: #fff;
-}
-
-.front.match {
 	background-color: #8afa09;
 }
 
+
 .back {
 	background-color: #0d0c0c;
+}
+
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
 }
 
 
