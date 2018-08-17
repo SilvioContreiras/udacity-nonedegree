@@ -14,6 +14,40 @@ body {
 }
 
 
+.main-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.resultado {
+	display: flex;
+	justify-content: center;
+	text-align: right;
+	width: 600px;
+	align-items: center;
+}
+
+.resultado .all-stars {
+	width: 20%;
+	height: 50px;
+}
+
+.fa-star:before {
+	font-size: 30px;
+}
+
+.resultado .all-stars li {
+	list-style: none;
+	display: inline-block;
+}
+
+.resultado .contMove {
+    margin: 0 auto;
+    font-size: 37px;
+    color: #5fa1c4;
+    height: 48px;
+}
 
 .info {
 	font-size: 14px;
@@ -108,7 +142,7 @@ body {
 }
 
 
-/***  Modal START HERE ***/
+/***  Style for modal  ***/
 
 .modal-overlay {
 	display: none;
@@ -125,11 +159,51 @@ body {
 	position: relative;
 	width: 600px
 	height: 500px;
-	max-width: 90%;
-	max-height: 90%;
+	width: 100%;
+  	height: 100%;
 	margin: 0 auto;
-	top: 20%;
-	-webkit-transform: translateY(-20%);
-			transform: translateY(-20%);
-	padding: 40px 20px; 
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: rgba(221,255,242,0.8);
+  	overflow: auto;
+}
+
+.modal .my-modal {
+	background-color: #F9F9F9;
+	width: 50%;
+	margin: 5% auto;
+	padding: 1% 6% 6%;
+	text-align: center;
+}
+
+.modal .congratulations {
+	color: #FF4B71;
+  	font-weight: 600;
+  	font-size: 1.5em;
+  	text-shadow: 2px 2px 9px  rgba(204, 204, 204, 0.7);
+}
+
+.modal .stats {
+  color: #1abdbd;
+  font-size: 1em;
+}
+
+.modal #Confirm, .modal #play-again {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 10em;
+  justify-content: center;
+  margin: 10px auto;
+  border: none;
+  background: #E0FFC1;
+  padding: 1em 2em;
+  color: #417A5A;
+  font-weight: 600;
+  box-shadow: 0px 0px 10px 0px rgba(155,250,223,0.8);
+}
+
+.modal #Confirm:focus, .modal #play-again:focus {
+	outline: 0;
 }

@@ -1,7 +1,21 @@
 const myCards =  document.querySelectorAll('.my-card');
 let myScore =  document.getElementById('score').textContent = 0;
 
-let card =  document.querySelector('.front');
+
+let timer =  '';
+let timerDelay = 0;
+let seg = 0;
+let min = 0;
+let timerCount =  document.querySelector('.timer');
+let reiniciar = document.querySelector('.reInit');
+let modal = document.querySelector('.modal');
+let felicitacoes =  document.querySelector('.congratulations');
+let status =  document.querySelector('.statistcs');
+
+
+// reiniciar.addEventListener('click', reinInitGame);
+
+// let card =  document.querySelector('.front');
 
 
 let changeCard = false;
@@ -34,8 +48,7 @@ function showCard() {
 
 	else {
 
-		let countPlay = myScore + 1; 
-		myScore = document.getElementById('score').innerHTML = countPlay;
+		numberSteps();
 
 		block = true;
 		setTimeout(function(){
@@ -46,6 +59,8 @@ function showCard() {
 	} 
 }
 
+// Reset the game
+
 function resetGame() {
 	changeCard = false;
 	block = false;
@@ -54,12 +69,22 @@ function resetGame() {
 }
 
 
+// Couts the number of steps failed.
+
+function numberSteps() {
+	let countPlay = myScore + 1; 
+	myScore = document.getElementById('score').innerHTML = countPlay;
+}
+
+
 function checarMatch() {
-		//  remove the function that make the card to flip
-		flipCards();
-		resetGame();
+	//  remove the function that make the card to flip
+	flipCards();
+	resetGame();
 
 }
+
+// When there is no match removes the flipped card
 
 function noMatch() {
 	cardOne.classList.remove('shake');
@@ -69,6 +94,8 @@ function noMatch() {
 	cardTwo.classList.remove('show');
 }
 
+//  Flips the card to front 
+
 function flipCards() {
 	cardOne.removeEventListener('click', showCard);
 	cardTwo.removeEventListener('click', showCard);
@@ -76,6 +103,9 @@ function flipCards() {
 	cardOne.classList.add('shake');
 	cardTwo.classList.add('shake');
 }
+
+
+//  Shuffle the array of cards
 
 (function shuffle() {
 	myCards.forEach(function(card){

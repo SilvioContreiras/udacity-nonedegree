@@ -5,81 +5,121 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"  crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Game Cards</title>
 </head>
 <body>
 
-    <header class="info">
-        <h1>Game of Cards Udacity</h1>
-        <p>Plays: <span id="score">0</span></p>
-    </header>
-    <section class="jogo-memory">
-        <div class="my-card" data-name="address">
-            <img class="front" src="img/address-book-solid.svg">
-            <img class="back" src="img/award-solid.svg">
+    <div class="main-content">
+        <header class="info">
+            <h1>Game of Cards Udacity</h1>
+           <!--  <p>Plays: <span id="score">0</span></p> -->
+        </header>
+
+        <section class="resultado">
+            <ul class="all-stars">
+               <li>
+                  <i class="star-one fas fa-star"></i> 
+               </li> 
+               <li>
+                   <i class="star-two fas fa-star"></i>
+               </li> 
+               <li>
+                   <i class="star-three fas fa-star"></i>
+               </li> 
+            </ul>
+            <div class="contMove">
+                <span id="score">0 </span><span> Move</span>
+            </div>
+
+            <div class="timer"> </div>
+
+            <div class="reInit">
+                <i class="fas fa-redo-alt"></i>
+            </div>
+        </section>
+
+        <section class="jogo-memory">
+            <div class="my-card" data-name="address">
+                <img class="front" src="img/address-book-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="ambulance">
+                <img class="front" src="img/ambulance-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="anchor">
+                <img class="front" src="img/anchor-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="aws">
+                <img class="front" src="img/aws-brands.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="bed">
+                <img class="front" src="img/bed-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="blind">
+                <img class="front" src="img/blind-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="child">
+                <img class="front" src="img/child-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="cogs">
+                <img class="front" src="img/cogs-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="cogs">
+                <img class="front" src="img/cogs-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="child">
+                <img class="front" src="img/child-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="blind">
+                <img class="front" src="img/blind-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="bed">
+                <img class="front" src="img/bed-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="aws">
+                <img class="front" src="img/aws-brands.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="anchor">
+                <img class="front" src="img/anchor-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="ambulance">
+                <img class="front" src="img/ambulance-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+            <div class="my-card" data-name="address">
+                <img class="front" src="img/address-book-solid.svg">
+                <img class="back" src="img/award-solid.svg">
+            </div>
+        </section> 
+
+        <div class="modal">
+            <div class="my-modal">
+               <div>
+                   <span class="congratulations"> Parabéns!!!!</span>
+                   <span class="statistcs"> </span>
+
+                   <button id="Confirm"> Confirm</button>
+
+                   <button id="play-again"> Jogar de novo</button>
+               </div> 
+            </div>
         </div>
-        <div class="my-card" data-name="ambulance">
-            <img class="front" src="img/ambulance-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="anchor">
-            <img class="front" src="img/anchor-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="aws">
-            <img class="front" src="img/aws-brands.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="bed">
-            <img class="front" src="img/bed-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="blind">
-            <img class="front" src="img/blind-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="child">
-            <img class="front" src="img/child-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="cogs">
-            <img class="front" src="img/cogs-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="cogs">
-            <img class="front" src="img/cogs-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="child">
-            <img class="front" src="img/child-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="blind">
-            <img class="front" src="img/blind-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="bed">
-            <img class="front" src="img/bed-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="aws">
-            <img class="front" src="img/aws-brands.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="anchor">
-            <img class="front" src="img/anchor-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="ambulance">
-            <img class="front" src="img/ambulance-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-        <div class="my-card" data-name="address">
-            <img class="front" src="img/address-book-solid.svg">
-            <img class="back" src="img/award-solid.svg">
-        </div>
-    </section>   
+    </div>  
 <script src="js/app.js"></script>
 </body>
 </html>
