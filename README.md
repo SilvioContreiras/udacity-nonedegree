@@ -8,6 +8,9 @@ Just clone the project and open the index.html in the chosen browser.
 ## Memory Game
 Card game is a very old game Just clinck on the images to chech if the images match. The goal of this game is to test the user memory.
 
+![snippet](img/img_game.png)
+
+
 ## Instructions
 
 * Click on the card and it will flip.
