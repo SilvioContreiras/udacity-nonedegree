@@ -3,7 +3,7 @@
 	padding: 0;
 	margin: 2px auto;
 	box-sizing: border-box;
-	font-style: 'Roboto', Arial;
+	font-family: 'Syncopate', sans-serif;
 }
 
 
@@ -56,7 +56,7 @@ body {
 }
 
 .info  p {
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .jogo-memory {
