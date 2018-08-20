@@ -3,7 +3,7 @@ let numMove =  document.getElementById('moveCount').textContent = 0;
 
 let countMatch = 0;
 let timerDelay = 0;
-let seg = 0;
+let sec = 0;
 let min = 0;
 let timerCount =  document.querySelector('.time');
 let time =  '';
@@ -14,10 +14,10 @@ let felicitacoes =  document.querySelector('.congratulations');
 let textTime = '';
 let modalMensag = ''; 
 let status =  document.querySelector('.statistcs');
-let estrelas = document.querySelector('.all-stars').getElementByTagName('li');
+let estrelas = document.querySelector('.all-stars').getElementsByTagName('li');
 let contStars =  3;
 
-reiniciar.addEventListener('click', reinInitGame);
+reiniciar.addEventListener('click', newGame);
 
 
 
@@ -46,6 +46,10 @@ function showCard() {
 		//  Check if the cards matches or not
 	if (cardOne.dataset.name === cardTwo.dataset.name) {
 		checarMatch();
+		timerDelay ++;
+		if (timerDelay === 1) {
+			timeStart();
+		}
 
 		countMatch ++;
 		youWin();
@@ -55,7 +59,7 @@ function showCard() {
 	else {
 
 		numberSteps();
-
+		starRemove();
 		block = true;
 		setTimeout(function(){
 			noMatch()
@@ -72,6 +76,23 @@ function resetGame() {
 	block = false;
 	cardOne = null;
 	cardTwo = null;
+
+	esconderModal();
+	reIniciarGame();
+}
+
+function newGame() {
+	stopTime();
+	clearModal();
+	reIniciarGame();
+
+}
+
+function reIniciarGame() {
+	numMove.innerHTML = '';
+	timerCount.innerHTML = '';
+	match = 0;
+	timerDelay = 0;
 }
 
 
@@ -86,7 +107,7 @@ function numberSteps() {
 function checarMatch() {
 	//  remove the function that make the card to flip
 	flipCards();
-	resetGame();
+	// resetGame();
 }
 
 // When there is no match removes the flipped card
@@ -149,14 +170,66 @@ function stopTime() {
 }
 
 function createsMensg() {
-	modalMensag = "<p>You made" + numMove + "moves in" + min + "minutes" + sec + "seconds!</p>" + "<p>you received" + contStars + "star</p>"
+	modalMensag = "<p>You made " + numMove + " moves in " + min + " minutes " + sec + " seconds!</p>" + "<p> you received" + contStars + "star</p>"
+}
+
+function createsModal() {
+	status.innerHTML = '';
+	status.innerHTML =  modalMensag;
+}
+
+function showModal() {
+	createsModal();
+
+	runClick();
+	window.onclick =  function(event) {
+		if(event.target == modal) {
+			esconderModal();
+		}
+	};
+
+	modal.style.display =  'block';
+}
+
+// Click on confirm to close the modal
+// and play again to play again.
+function runClick() {
+	// document.querySelector('#confirm').onclick =  esconderModal;
+	document.querySelector('#play-again').onclick = resetGame;
+}
+
+
+// Hide modal
+function esconderModal() {
+	modal.style.display = 'none';
+}
+
+function clearModal() {
+	status.innerHTML =  '';
+}
+
+// End of the game and show the message
+function endOfGame() {
+	createsMensg();
+	stopTime();
+	showModal();
+}
+
+function starRemove() {
+	if (numMove > 5) {
+		estrelas[2].style.display =  'none';
+		contStars = 2;
+	} if (numMove > 20) {
+		estrelas[1].style.display =  'none';
+	}
 }
 
 
 // Verify if you win the game.
 function youWin() {
-
 	if (countMatch === 8) {
+
+		endOfGame();
 		console.log("You Win");
 	}
 }
