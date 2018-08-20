@@ -37,6 +37,11 @@ function showCard() {
 		changeCard = true;
 		cardOne = this;
 
+		timerDelay ++;
+		if (timerDelay === 1) {
+			timeStart();
+		}
+
 		return;
 
 	} 
@@ -46,10 +51,6 @@ function showCard() {
 		//  Check if the cards matches or not
 	if (cardOne.dataset.name === cardTwo.dataset.name) {
 		checarMatch();
-		timerDelay ++;
-		if (timerDelay === 1) {
-			timeStart();
-		}
 
 		countMatch ++;
 		youWin();
@@ -216,7 +217,7 @@ function endOfGame() {
 }
 
 function starRemove() {
-	if (numMove > 5) {
+	if (numMove > 10) {
 		estrelas[2].style.display =  'none';
 		contStars = 2;
 	} if (numMove > 20) {
