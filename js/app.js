@@ -67,6 +67,7 @@ function showCard() {
 	} 
 }
 
+// Call of the function to play again the game.
 playAgain();
 
 // Reset the game
