@@ -18,6 +18,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	overflow: hidden;
 }
 
 .resultado {
@@ -170,38 +171,38 @@ body {
 }
 
 .modal .my-modal {
-	background-color: #607d8bfc;
-	width: 50%;
-	margin: 5% auto;
-	padding: 1% 6% 6%;
-	text-align: center;
+    width: 50%;
+    margin: 7% auto;
+    padding: 10% 2% 8% 3%;
+    text-align: center;
+    background-color: #0c1920fc;
 }
 
 .modal .congratulations {
-	color: #f6f6f6;
+	color: cornsilk;
   	font-weight: 600;
   	font-size: 1.5em;
   	text-shadow: 2px 2px 9px  rgba(204, 204, 204, 0.7);
 }
 
-.modal .stats {
-  color: #1abdbd;
-  font-size: 1em;
+.modal .statistcs {
+	color: chartreuse;
 }
 
 .modal #Confirm, .modal #play-again {
-  cursor: pointer;
-  display: flex;
-  flex-wrap: nowrap;
-  width: 10em;
-  justify-content: center;
-  margin: 10px auto;
-  border: none;
-  background: #f1f1ea;
-  padding: 1em 2em;
-  color: #454961;
-  font-weight: 600;
-  box-shadow: 0px 0px 10px 0px rgba(155,250,223,0.8);
+	display: flex;
+	flex-wrap: nowrap;
+	width: 16em;
+	justify-content: center;
+	margin: 30px auto;
+	border: none;
+	background: #f3f3ee;
+	padding: 1em 2em;
+	color: #3a304d;
+	font-weight: 900;
+	box-shadow: 0px 0px 10px 0px rgb(255, 253, 253);
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .modal #Confirm:focus, .modal #play-again:focus {

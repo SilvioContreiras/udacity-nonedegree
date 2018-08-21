@@ -1,10 +1,13 @@
+// Declaring all Variables
+
 const myCards =  document.querySelectorAll('.my-card');
-let numMove =  document.getElementById('moveCount').textContent = 0;
+let numMove =  0
 
 let countMatch = 0;
 let timerDelay = 0;
+let secTotal = 0;
 let sec = 0;
-let min = 0;
+let minTotal = 0;
 let timerCount =  document.querySelector('.time');
 let time =  '';
 let timeResting = 0;
@@ -16,11 +19,6 @@ let modalMensag = '';
 let status =  document.querySelector('.statistcs');
 let estrelas = document.querySelector('.all-stars').getElementsByTagName('li');
 let contStars =  3;
-
-reiniciar.addEventListener('click', newGame);
-
-
-
 let changeCard = false;
 let block = false;
 let cardOne, cardTwo;
@@ -54,7 +52,6 @@ function showCard() {
 
 		countMatch ++;
 		youWin();
-
 	} 
 
 	else {
@@ -70,35 +67,41 @@ function showCard() {
 	} 
 }
 
-// Reset the game
+playAgain();
 
+// Reset the game
 function resetGame() {
 	changeCard = false;
-	block = false;
+    block = false;
 	cardOne = null;
 	cardTwo = null;
+}
 
-	esconderModal();
-	reIniciarGame();
+// Function play again button
+function playAgain() {
+	reiniciar.addEventListener('click', newGame);
 }
 
 function newGame() {
 	stopTime();
 	clearModal();
 	reIniciarGame();
-
+	console.log('working!');
 }
 
+
+// Reset number of moves, timer, and the number of stars
 function reIniciarGame() {
-	numMove.innerHTML = '';
+	numMove = document.getElementById('moveCount').textContent = 0;
 	timerCount.innerHTML = '';
-	match = 0;
 	timerDelay = 0;
+	estrelas[1].style.display =  'inline-block';
+	estrelas[2].style.display =  'inline-block';
+	window.location.reload();
 }
 
 
 // Couts the number of steps failed.
-
 function numberSteps() {
 	let countPlay = numMove + 1; 
 	numMove = document.getElementById('moveCount').innerHTML = countPlay;
@@ -108,11 +111,11 @@ function numberSteps() {
 function checarMatch() {
 	//  remove the function that make the card to flip
 	flipCards();
-	// resetGame();
+	resetGame();
 }
 
-// When there is no match removes the flipped card
 
+// When there is no match removes the flipped card
 function noMatch() {
 	cardOne.classList.remove('shake');
 	cardTwo.classList.remove('shake');
@@ -130,13 +133,6 @@ function flipCards() {
 	cardTwo.classList.add('shake');
 }
 
-// Game start
-// function initGame() {
-// 	for (let i = 0; i < myCards.length; i++) {
-// 		myCards[i].addEventListener(click, showCard)
-// 	}
-// }
-
 
 // Init the the time of the game
 function timeStart() {
@@ -146,16 +142,16 @@ function timeStart() {
 
 // Calculate minutes and seconds 
 function buildTime() {
-	sec += 1;
-	min =  Math.floor(sec / 60);
-	sec = Math.floor(sec % 60);
-	textTime = pad(min) + ":" + pad(sec);
+	++sec;
+	minTotal =  pad(parseInt(sec / 60));
+	secTotal =  pad(sec % 60);
+	textTime = minTotal + ":" + secTotal;
 	timerCount.innerHTML =  textTime;
 } 
 
 
-function pad(value) {
-	let txt = value + "";
+function pad(val) {
+	let txt = val + "";
 	if(txt.length < 2){
 		return "0" + txt;
 	} else {
@@ -165,13 +161,13 @@ function pad(value) {
 
 function stopTime() {
 	clearInterval(time);
-	sec = 0;
-	min = 0;
+	secTotal = 0;
+	minTotal = 0;
 	textTime = '';
 }
 
 function createsMensg() {
-	modalMensag = "<p>You made " + numMove + " moves in " + min + " minutes " + sec + " seconds!</p>" + "<p> you received" + contStars + "star</p>"
+	modalMensag = "<p>Você fez " + numMove + " movimentos em " + minTotal + " min e " + secTotal + " seg</p>" + "<p> recebeste " + contStars + " Estrela(s)</p>"
 }
 
 function createsModal() {
@@ -195,15 +191,16 @@ function showModal() {
 // Click on confirm to close the modal
 // and play again to play again.
 function runClick() {
-	// document.querySelector('#confirm').onclick =  esconderModal;
-	document.querySelector('#play-again').onclick = resetGame;
+	document.querySelector('#play-again').onclick = newGame;
 }
 
 
-// Hide modal
+// Hide the modal modal
 function esconderModal() {
 	modal.style.display = 'none';
 }
+
+// clear the modal status
 
 function clearModal() {
 	status.innerHTML =  '';
@@ -216,8 +213,9 @@ function endOfGame() {
 	showModal();
 }
 
+// This function starts removing the amout of stars when the number of moves exceeds 16
 function starRemove() {
-	if (numMove > 10) {
+	if (numMove > 16) {
 		estrelas[2].style.display =  'none';
 		contStars = 2;
 	} if (numMove > 20) {
@@ -237,7 +235,6 @@ function youWin() {
 
 
 //  Shuffle the array of cards
-
 (function shuffle() {
 	myCards.forEach(function(card){
 		let randomNum = Math.floor(Math.random() * 16);
@@ -246,7 +243,7 @@ function youWin() {
 })();
 
 
-
+//  Go through the array containg the cards
 myCards.forEach(function(card){
 	card.addEventListener('click', showCard);
 });
