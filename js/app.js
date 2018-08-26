@@ -1,4 +1,4 @@
-// Declaring all Variables
+// Declaring all variables
 
 const myCards =  document.querySelectorAll('.my-card');
 let numMove =  0
