@@ -16,7 +16,7 @@ Card game is a very old game Just clinck on the images to chech if the images ma
 * Keep clicking and and remember the similar card image
 * Try to match cards with less moves and faster time
 
-## About the development of the game.
+## About the development of the Game.
 
 This project was developed in Vanilla JavaScript in order to manipulate the DOM.
 Also used HTML and CSS3 to style the game.
