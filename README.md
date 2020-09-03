@@ -6,7 +6,7 @@ This project uses Vanilla Javascript
 Just clone the project and open the index.html in the chosen browser.
 
 ## Memory Game
-Card game is a very old game Just clinck on the images to chech if the images match. The goal of this game is to test the user memory.
+Card game is a very old game Just clinck on the images to check if the images match. The goal of this game is to test the user memory.
 
 ![snippet](img/screenshopt-game.PNG)
 
