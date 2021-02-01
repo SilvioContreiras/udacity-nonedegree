@@ -1,4 +1,4 @@
-# frontend-nanodegree-card-game
+# Frontend Nanodegree card-game
 
 This project uses Vanilla Javascript 
 
